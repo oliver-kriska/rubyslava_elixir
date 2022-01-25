@@ -18,7 +18,7 @@ defmodule RubyslavaElixirWeb.Router do
   scope "/", RubyslavaElixirWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    live "/", DashboardLive.Index
     live_dashboard "/dashboard", metrics: RubyslavaElixirWeb.Telemetry
   end
 

@@ -1,0 +1,27 @@
+<div class="grid gap-4 grid-cols-2 grid-rows-3 p-10 mx-auto">
+  <div id="board">
+    <ul class="list-none p-3 border-solid rounded border-slate-200 border-2 bg-slate-100">
+      <%= for question <- @questions do %>
+        <li class="mb-2 p-2 border-b-2 border-dotted border-slate-200">
+          <p class="italic text-sm text-right m-0 p-0 text-slate-600"><%= question.time %></p>
+          <p class="text-base"><%= question.body %></p>
+        </li>
+      <% end %>
+
+      <li class="mt-2 p-2">
+        <form phx-submit="ask">
+          <div class="flex flex-row w-max">
+            <div class="basis-3/5">
+              <textarea name="question" id="question" rows="4" required placeholder="Type a question" class="border-solid rounded border-slate-200 border-2 bg-white w-max"></textarea>
+            </div>
+            <div class="basis-2/5">
+              <button type="submit" class="p-4 ml-4 w-36 bg-slate-200 border-slate-400" phx-disable-with="Sending...">Send</button>
+            </div>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </div>
+  <div id="numbers">
+  </div>
+</div>

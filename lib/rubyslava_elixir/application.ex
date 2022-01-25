@@ -13,7 +13,8 @@ defmodule RubyslavaElixir.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: RubyslavaElixir.PubSub},
       # Start the Endpoint (http/https)
-      RubyslavaElixirWeb.Endpoint
+      RubyslavaElixirWeb.Endpoint,
+      {RubyslavaElixir.Questions, []}
       # Start a worker by calling: RubyslavaElixir.Worker.start_link(arg)
       # {RubyslavaElixir.Worker, arg}
     ]
