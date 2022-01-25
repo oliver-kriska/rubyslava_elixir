@@ -51,6 +51,8 @@ defmodule RubyslavaElixir.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:timex, "~> 3.7"},
+      {:finch, "~> 0.10.2"},
+      {:nimble_csv, "~> 1.2"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.1", only: [:dev, :test], runtime: false}
     ]

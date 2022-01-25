@@ -5,7 +5,7 @@ defmodule RubyslavaElixirWeb.DashboardLive.Index do
   use RubyslavaElixirWeb, :live_view
 
   alias Phoenix.PubSub
-  alias RubyslavaElixir.{Question, Questions}
+  alias RubyslavaElixir.Questions
 
   @pub_sub_server RubyslavaElixir.PubSub
 
@@ -14,11 +14,13 @@ defmodule RubyslavaElixirWeb.DashboardLive.Index do
     if connected?(socket) do
       Process.send_after(self(), :get_questions, 1)
       Phoenix.PubSub.subscribe(@pub_sub_server, "questions")
+      Phoenix.PubSub.subscribe(@pub_sub_server, "quotes")
     end
 
     socket =
       socket
       |> assign(:questions, [])
+      |> assign(:quote, nil)
 
     {:ok, socket}
   end
@@ -43,14 +45,12 @@ defmodule RubyslavaElixirWeb.DashboardLive.Index do
     {:noreply, assign(socket, questions: questions)}
   end
 
-  defp create_question(body) do
-    question = %Question{
-      id: :crypto.strong_rand_bytes(10) |> Base.encode16(),
-      body: body,
-      time: Timex.now()
-    }
+  def handle_info({:new_quote, new_quote}, socket),
+    do: {:noreply, assign(socket, quote: new_quote)}
 
-    Questions.store(question)
+  defp create_question(body) do
+    question = Questions.new(body)
+
     PubSub.broadcast!(@pub_sub_server, "questions", {:new_question, question})
     question
   end

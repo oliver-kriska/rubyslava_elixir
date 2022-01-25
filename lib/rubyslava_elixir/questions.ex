@@ -17,4 +17,16 @@ defmodule RubyslavaElixir.Questions do
   def store(%Question{} = question) do
     Agent.update(__MODULE__, &(&1 ++ [question]))
   end
+
+  def new(body) do
+    question = %Question{
+      id: :crypto.strong_rand_bytes(10) |> Base.encode16(),
+      body: body,
+      time: Timex.now()
+    }
+
+    store(question)
+
+    question
+  end
 end

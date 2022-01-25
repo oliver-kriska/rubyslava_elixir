@@ -22,6 +22,12 @@
       </li>
     </ul>
   </div>
-  <div id="numbers">
+  <div id="quote">
+    <%= if @quote do %>
+    <h2><%= @quote.quote %></h2>
+    <h3><%= @quote.author %></h3>
+    <% else %>
+    <h2>No quote</h2>
+    <% end %>
   </div>
 </div>
