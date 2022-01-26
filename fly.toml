@@ -1,13 +1,13 @@
-# fly.toml file generated for rubyslava-elixir on 2022-01-18T20:25:07+01:00
+# fly.toml file generated for rubyslava-liveview on 2022-01-26T15:41:25+01:00
 
-app = "rubyslava-elixir"
+app = "rubyslava-liveview"
 
 kill_signal = "SIGTERM"
 kill_timeout = 5
 processes = []
 
 [env]
-  PHX_HOST = "rubyslava-elixir.fly.dev"
+  PHX_HOST = "rubyslava-liveview.fly.dev"
   PORT = "8080"
 
 [experimental]
