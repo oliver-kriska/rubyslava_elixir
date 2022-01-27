@@ -16,7 +16,8 @@ defmodule RubyslavaElixir.Application do
       RubyslavaElixirWeb.Endpoint,
       {RubyslavaElixir.Questions, []},
       {Finch, name: RubyslavaElixir.Finch},
-      {RubyslavaElixir.Quotes, []}
+      {RubyslavaElixir.Quotes, []},
+      RubyslavaElixirWeb.BoardPresence
       # Start a worker by calling: RubyslavaElixir.Worker.start_link(arg)
       # {RubyslavaElixir.Worker, arg}
     ]

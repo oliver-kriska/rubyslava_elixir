@@ -3,5 +3,5 @@ defmodule RubyslavaElixir.Question do
   Definition of base struct for manipulation with questions
   """
 
-  defstruct id: nil, body: "", time: nil
+  defstruct id: nil, body: "", name: "", time: nil
 end
