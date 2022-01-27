@@ -4,6 +4,7 @@ Basic application with simple LiveView implementations:
 - message board
 - random quotes generator
 
+Slides from presentation: https://www.slideshare.net/quatermain1/rubyslava-phoenix-liveview
 
 ## Running
 
